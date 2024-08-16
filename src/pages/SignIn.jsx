@@ -1,8 +1,10 @@
 import  { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+
 import { AuthContext } from '../component/AuthProvider';
+import Swal from 'sweetalert2';
+import SocialComponent from '../component/SocialComponent';
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -47,9 +49,7 @@ const SignIn = () => {
 
     return (
         <div className="min-h-screen bg-base-200 md:flex md:justify-center items-center">
-            <Helmet>
-                <title>3 Idiots | LogIn</title>
-            </Helmet>
+           
             <div className="card md:w-1/2 p-6 bg-base-100">
                 <h1 className="text-5xl font-bold mb-4 text-center">Login now!</h1>
                 <form onSubmit={handleLogin}>
@@ -80,7 +80,7 @@ const SignIn = () => {
                 </form>
                 <p className='text-center mt-4'><small>New here? </small> <Link className='font-bold' to="/signUp">Create a new account</Link></p>
                 <div className='text-center'>
-                <SocialComponent />
+               <SocialComponent></SocialComponent>
                 </div>
             </div>
             <div className="flex-1">
