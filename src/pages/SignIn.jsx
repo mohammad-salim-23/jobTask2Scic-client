@@ -1,5 +1,5 @@
-import  { useContext, useEffect, useState } from 'react';
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import  { useContext, useEffect } from 'react';
+import { loadCaptchaEnginge} from 'react-simple-captcha';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../component/AuthProvider';
@@ -10,12 +10,10 @@ const SignIn = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
-    const [disabled, setDisabled] = useState(true);
+    
     const { signIn } = useContext(AuthContext);
 
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    }, []);
+    
 
     const handleLogin = e => {
         e.preventDefault();
@@ -37,15 +35,7 @@ const SignIn = () => {
             })
     }
 
-    const handleValidateCaptcha = (e) => {
-        const user_captcha_value = e.target.value;
-        if (validateCaptcha(user_captcha_value)) {
-            setDisabled(false);
-        }
-        else {
-            setDisabled(true);
-        }
-    }
+  
 
     return (
         <div className="min-h-screen bg-base-200 md:flex md:justify-center items-center">
@@ -68,14 +58,9 @@ const SignIn = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <LoadCanvasTemplate />
-                        </label>
-                        <input onBlur={handleValidateCaptcha} type="text" name="captcha" placeholder="Type the above captcha" className="input input-bordered" />
-                    </div>
+                    
                     <div className="form-control mt-6">
-                        <input disabled={disabled} className="btn bg-primaryColor w-full" type="submit" value="Login" />
+                        <input className="btn bg-primaryColor w-full" type="submit" value="Login" />
                     </div>
                 </form>
                 <p className='text-center mt-4'><small>New here? </small> <Link className='font-bold' to="/signUp">Create a new account</Link></p>
