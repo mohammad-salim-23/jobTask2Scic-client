@@ -103,6 +103,7 @@ const AllProducts = () => {
             </div>
 
             {/* Product list */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             {products.map((product) => (
                 <div key={product._id}>
                     {/* Product details */}
@@ -119,6 +120,7 @@ const AllProducts = () => {
     <p>{product.productName}</p>
       <div className="badge badge-secondary">NEW</div>
     </h2>
+    <p className='font-medium'>Category:{product.category}</p>
     <p className='font-bold'>price:{product.price}tk</p>
     <p>{product.description}</p>
     <p className='font-bold'>Ratings:{product.ratings}</p>
@@ -127,16 +129,21 @@ const AllProducts = () => {
 </div>
                 </div>
             ))}
+  </div>
 
             {/* Pagination */}
-            <div>
-                <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>Previous</button>
+            <div className='flex justify-center gap-4 mt-3'>
+                <button onClick={() => handlePageChange(currentPage - 1)} 
+                className='btn btn-outline mx-1'
+                disabled={currentPage === 1}>Previous</button>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button key={index + 1} onClick={() => handlePageChange(index + 1)} className={currentPage === index + 1 ? 'active' : ''}>
                         {index + 1}
                     </button>
                 ))}
-                <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>Next</button>
+                <button onClick={() => handlePageChange(currentPage + 1)}
+                 className="btn btn-outline mx-1"
+                 disabled={currentPage === totalPages}>Next</button>
             </div>
         </div>
     );
