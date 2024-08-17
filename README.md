@@ -2,6 +2,7 @@
 
 Welcome to the **TechGadget** frontend repository. This project is the client-side implementation of the TechGadget platform, an e-commerce website for purchasing the latest tech gadgets.
 
+#Live_Link:https://techgadgetscic.web.app
 
 ## Project Overview
 
