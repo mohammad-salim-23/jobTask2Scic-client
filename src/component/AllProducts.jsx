@@ -106,8 +106,25 @@ const AllProducts = () => {
             {products.map((product) => (
                 <div key={product._id}>
                     {/* Product details */}
-                    <p>{product.productName}</p>
-                    <p>{product.price}</p>
+                    
+                   
+                    <div className="card bg-base-100 w-96 shadow-xl">
+  <figure>
+    <img
+      src={product.productImage}
+      alt="Shoes" />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">
+    <p>{product.productName}</p>
+      <div className="badge badge-secondary">NEW</div>
+    </h2>
+    <p className='font-bold'>price:{product.price}tk</p>
+    <p>{product.description}</p>
+    <p className='font-bold'>Ratings:{product.ratings}</p>
+    <p className='font-medium'>CreationDateTime:{product.creationDateTime}</p>
+  </div>
+</div>
                 </div>
             ))}
 

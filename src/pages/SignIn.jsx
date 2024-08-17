@@ -1,5 +1,5 @@
 import  { useContext, useEffect } from 'react';
-import { loadCaptchaEnginge} from 'react-simple-captcha';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../component/AuthProvider';
